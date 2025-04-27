@@ -1,4 +1,4 @@
-local gpu = peripheral.wrap("bottom")
+local gpu = peripheral.wrap("top")
 gpu.setSize(64, 64, 6, 5, 30)
 gpu.refreshSize()
 gpu.sync()
