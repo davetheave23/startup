@@ -1,0 +1,5 @@
+local gpu = peripheral.wrap("top")
+if not gpu then
+  print("No screen found on the top side.")
+  return
+end
