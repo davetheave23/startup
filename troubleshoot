@@ -1,5 +1,11 @@
 local gpu = peripheral.wrap("top")
-if not gpu then
-  print("No screen found on the top side.")
-  return
+
+-- Check if the GPU is working
+if gpu then
+    gpu.clear()  -- Clear the screen
+    gpu.setTextScale(1)  -- Set text scale
+    gpu.setCursorPos(1, 1)  -- Set cursor to top-left
+    gpu.write("Hello, World!")  -- Display message
+else
+    print("No screen detected.")
 end
