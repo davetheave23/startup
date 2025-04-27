@@ -1,5 +1,5 @@
-local gpu = peripheral.wrap("top")  -- Wrap your monitor (make sure it's correct)
-gpu.setResolution(64, 32)  -- Set the correct resolution for your monitor
+local gpu = peripheral.wrap("top")  -- Wrap your monitor (ensure correct side)
+gpu.setTextScale(1)  -- Set a text scale (adjust as needed)
 
 -- Function to clear the screen
 local function clearScreen()
@@ -12,7 +12,7 @@ local function startupAnimation()
 
     -- Animation: A simple scrolling text
     local text = "Welcome to My Program!"
-    local width = gpu.getResolution()
+    local width = 64  -- Adjust this to match your screen width
     local position = width + 1
 
     while position > -string.len(text) do
