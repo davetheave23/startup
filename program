@@ -1,5 +1,31 @@
-local gpu = peripheral.wrap("top")
-if not gpu then
-  print("No screen found on the top side.")
-  return
+local gpu = peripheral.wrap("top")  -- Wrap your monitor (make sure it's correct)
+gpu.setResolution(64, 32)  -- Set the correct resolution for your monitor
+
+-- Function to clear the screen
+local function clearScreen()
+    gpu.fill(1, 1, 64, 32, " ")  -- Fill the screen with spaces (clear it)
 end
+
+-- Animation function for the startup
+local function startupAnimation()
+    clearScreen()
+
+    -- Animation: A simple scrolling text
+    local text = "Welcome to My Program!"
+    local width = gpu.getResolution()
+    local position = width + 1
+
+    while position > -string.len(text) do
+        clearScreen()
+        gpu.setCursorPos(position, 16)  -- Place the cursor at the new position
+        gpu.write(text)  -- Write the text
+        position = position - 1
+        sleep(0.1)  -- Slow down the animation for better viewing
+    end
+end
+
+-- Call the startup animation
+startupAnimation()
+
+-- Continue with the rest of your program here
+print("Program started!")
